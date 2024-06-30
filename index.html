@@ -1,136 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Sleuth</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-  <style type="text/tailwindcss">
-    @layer base {
-      :root {
-        --background: 0 0% 100%;
-        --foreground: 240 10% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 240 10% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 240 10% 3.9%;
-        --primary: 240 5.9% 10%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 240 4.8% 95.9%;
-        --secondary-foreground: 240 5.9% 10%;
-        --muted: 240 4.8% 95.9%;
-        --muted-foreground: 240 3.8% 46.1%;
-        --accent: 240 4.8% 95.9%;
-        --accent-foreground: 240 5.9% 10%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 5.9% 90%;
-        --input: 240 5.9% 90%;
-        --ring: 240 5.9% 10%;
-        --radius: 0.5rem;
-      }
-      .dark {
-        --background: 240 10% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 240 10% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 240 10% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 240 5.9% 10%;
-        --secondary: 240 3.7% 15.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 240 3.7% 15.9%;
-        --muted-foreground: 240 5% 64.9%;
-        --accent: 240 3.7% 15.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 3.7% 15.9%;
-        --input: 240 3.7% 15.9%;
-        --ring: 240 4.9% 83.9%;
-      }
-    }
-  </style>
-  <script>
-    const words = [
-      // Everyday Objects
-      'Chair', 'Table', 'Laptop', 'Backpack', 'Umbrella', 'Bicycle', 'Headphones', 'Pillow', 'Mug', 'Keyboard',
-      // Food and Drinks
-      'Pizza', 'Sushi', 'Sandwich', 'Salad', 'Chocolate', 'Smoothie', 'Ice cream', 'Pasta', 'Coffee', 'Apple',
-      // Animals
-      'Elephant', 'Kangaroo', 'Dolphin', 'Penguin', 'Giraffe', 'Panda', 'Lion', 'Owl', 'Tiger', 'Zebra',
-      // Places
-      'Beach', 'Mountain', 'Forest', 'Desert', 'Island', 'City', 'Village', 'Castle', 'Museum', 'Park',
-      // Emotions
-      'Happiness', 'Anger', 'Sadness', 'Excitement', 'Fear', 'Surprise', 'Love', 'Jealousy', 'Pride', 'Confusion',
-      // Professions
-      'Doctor', 'Teacher', 'Engineer', 'Chef', 'Artist', 'Pilot', 'Writer', 'Musician', 'Scientist', 'Architect',
-      // Activities
-      'Running', 'Painting', 'Cooking', 'Swimming', 'Reading', 'Dancing', 'Singing', 'Hiking', 'Shopping', 'Traveling',
-      // Technology
-      'Smartphone', 'Internet', 'Wi-Fi', 'Bluetooth', 'Camera', 'Smartwatch', 'Drone', 'Robot', 'Virtual reality', 'Tablet',
-      // Nature
-      'Rainforest', 'Volcano', 'Glacier', 'River', 'Ocean', 'Sunset', 'Earthquake', 'Tornado', 'Waterfall', 'Canyon',
-      // Sports
-      'Basketball', 'Soccer', 'Tennis', 'Baseball', 'Golf', 'Skiing', 'Skateboarding', 'Surfing', 'Boxing', 'Volleyball',
-      // Fictional Characters
-      'Superman', 'Sherlock Holmes', 'Harry Potter', 'Spider-Man', 'Wonder Woman', 'Batman', 'Luke Skywalker', 'Katniss Everdeen', 'Frodo Baggins', 'Iron Man',
-      // Mythical Creatures
-      'Dragon', 'Unicorn', 'Phoenix', 'Mermaid', 'Centaur', 'Werewolf', 'Vampire', 'Griffin', 'Minotaur', 'Cyclops',
-      // Fantasy Items
-      'Magic Wand', 'Potion', 'Sword', 'Shield', 'Spellbook', 'Amulet', 'Crystal Ball', 'Cloak', 'Ring', 'Treasure Chest',
-      // Historical Figures
-      'Albert Einstein', 'Cleopatra', 'Leonardo da Vinci', 'Julius Caesar', 'Napoleon', 'Martin Luther King Jr.', 'Marie Curie', 'Abraham Lincoln', 'Joan of Arc', 'Mahatma Gandhi'
-    ];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 240 10% 3.9%;
+                --card: 0 0% 100%;
+                --card-foreground: 240 10% 3.9%;
+                --popover: 0 0% 100%;
+                --popover-foreground: 240 10% 3.9%;
+                --primary: 240 5.9% 10%;
+                --primary-foreground: 0 0% 98%;
+                --secondary: 240 4.8% 95.9%;
+                --secondary-foreground: 240 5.9% 10%;
+                --muted: 240 4.8% 95.9%;
+                --muted-foreground: 240 3.8% 46.1%;
+                --accent: 240 4.8% 95.9%;
+                --accent-foreground: 240 5.9% 10%;
+                --destructive: 0 84.2% 60.2%;
+                --destructive-foreground: 0 0% 98%;
+                --border: 240 5.9% 90%;
+                --input: 240 5.9% 90%;
+                --ring: 240 5.9% 10%;
+                --radius: 0.5rem;
+            }
+            .dark {
+                --background: 240 10% 3.9%;
+                --foreground: 0 0% 98%;
+                --card: 240 10% 3.9%;
+                --card-foreground: 0 0% 98%;
+                --popover: 240 10% 3.9%;
+                --popover-foreground: 0 0% 98%;
+                --primary: 0 0% 98%;
+                --primary-foreground: 240 5.9% 10%;
+                --secondary: 240 3.7% 15.9%;
+                --secondary-foreground: 0 0% 98%;
+                --muted: 240 3.7% 15.9%;
+                --muted-foreground: 240 5% 64.9%;
+                --accent: 240 3.7% 15.9%;
+                --accent-foreground: 0 0% 98%;
+                --destructive: 0 62.8% 30.6%;
+                --destructive-foreground: 0 0% 98%;
+                --border: 240 3.7% 15.9%;
+                --input: 240 3.7% 15.9%;
+                --ring: 240 4.9% 83.9%;
+            }
+        }
+    </style>
+    <title>Word Sleuth</title>
+</head>
+<body>
+<div id="welcome-screen" class="h-screen flex flex-col justify-center items-center bg-primary text-primary-foreground">
+    <h1 class="text-4xl font-bold mb-8">Word Sleuth</h1>
+    <button id="start-game-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg">Start Game</button>
+</div>
 
-    let customWords = [];
-    let useCustomWords = false;
+<div id="num-players-screen" class="hidden h-screen flex flex-col justify-center items-center bg-primary text-primary-foreground">
+    <h2 class="text-2xl mb-4">Enter Number of Players</h2>
+    <input id="num-players" type="number" min="3" placeholder="Number of players" class="bg-input text-primary-foreground px-4 py-2 rounded-md mb-4">
+    <button id="next-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg">Next</button>
+</div>
+
+<div id="player-names-screen" class="hidden h-screen flex flex-col justify-center items-center bg-primary text-primary-foreground">
+    <h2 class="text-2xl mb-4">Enter Player Names</h2>
+    <div id="player-names-container" class="flex flex-col items-center"></div>
+    <button id="start-round-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg mt-4">Start Game</button>
+</div>
+
+<div id="role-viewing-screen" class="hidden h-screen flex flex-col justify-center items-center bg-primary text-primary-foreground">
+    <h2 class="text-2xl mb-4" id="player-turn"></h2>
+    <button id="show-role-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg">Show Role</button>
+    <p id="role-text" class="text-lg mt-4"></p>
+    <button id="next-player-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg mt-4 hidden">Next Player</button>
+</div>
+
+<div id="playing-screen" class="hidden h-screen flex flex-col justify-center items-center bg-primary text-primary-foreground">
+    <p class="text-2xl text-center mb-8">All players have seen their roles. Let the game begin!</p>
+    <button id="impostor-won-btn" class="bg-green-500 text-white px-4 py-2 rounded-lg mb-4">Impostor Won</button>
+    <button id="impostor-lost-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg">Impostor Lost</button>
+</div>
+
+<div id="end-round-screen" class="hidden h-screen flex flex-col justify-center items-center bg-primary text-primary-foreground">
+    <p id="round-result" class="text-2xl text-center mb-4"></p>
+    <div id="scoreboard" class="bg-card text-card-foreground p-4 rounded-lg mb-4"></div>
+    <button id="new-round-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg mb-2">New Round</button>
+    <button id="quit-btn" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg">Quit</button>
+</div>
+
+<script>
+    let numPlayers;
+    let players = [];
+    let impostor;
+    let secretWord;
+    let currentPlayerIndex = 0;
+    const words = ["apple", "banana", "grape", "orange"];
+
+    document.getElementById('start-game-btn').addEventListener('click', showNumPlayersScreen);
+    document.getElementById('next-btn').addEventListener('click', getNumPlayers);
+    document.getElementById('start-round-btn').addEventListener('click', startGame);
+    document.getElementById('show-role-btn').addEventListener('click', showRole);
+    document.getElementById('next-player-btn').addEventListener('click', nextPlayer);
+    document.getElementById('impostor-won-btn').addEventListener('click', () => endRound(true));
+    document.getElementById('impostor-lost-btn').addEventListener('click', () => endRound(false));
+    document.getElementById('new-round-btn').addEventListener('click', showNumPlayersScreen);
+    document.getElementById('quit-btn').addEventListener('click', quitGame);
+
+    function showNumPlayersScreen() {
+        hideAllScreens();
+        document.getElementById('num-players-screen').classList.remove('hidden');
+    }
+
+    function getNumPlayers() {
+        numPlayers = parseInt(document.getElementById('num-players').value);
+        if (numPlayers >= 3) {
+            showPlayerNamesScreen();
+        } else {
+            alert("At least 3 players required");
+        }
+    }
+
+    function showPlayerNamesScreen() {
+        hideAllScreens();
+        document.getElementById('player-names-screen').classList.remove('hidden');
+        const container = document.getElementById('player-names-container');
+        container.innerHTML = '';
+        for (let i = 0; i < numPlayers; i++) {
+            container.innerHTML += `<input type="text" placeholder="Player ${i + 1}" class="bg-input text-primary-foreground px-4 py-2 rounded-md mb-2">`;
+        }
+    }
 
     function startGame() {
-      const wordList = useCustomWords ? customWords : words;
-      const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-      console.log("Selected word:", randomWord);
-      // Continue with the game logic using randomWord
+        players = Array.from(document.querySelectorAll('#player-names-container input')).map(input => input.value).filter(name => name.trim());
+        if (players.length < numPlayers) {
+            alert("Please enter all player names");
+            return;
+        }
+        impostor = players[Math.floor(Math.random() * players.length)];
+        secretWord = words[Math.floor(Math.random() * words.length)];
+        currentPlayerIndex = 0;
+        showRoleViewingScreen();
     }
 
-    function addCustomWord() {
-      const customWordInput = document.getElementById('customWordInput');
-      const word = customWordInput.value.trim();
-      if (word) {
-        customWords.push(word);
-        customWordInput.value = '';
-        displayCustomWords();
-      }
+    function showRoleViewingScreen() {
+        hideAllScreens();
+        document.getElementById('role-viewing-screen').classList.remove('hidden');
+        updatePlayerTurn();
     }
 
-    function displayCustomWords() {
-      const customWordList = document.getElementById('customWordList');
-      customWordList.innerHTML = '';
-      customWords.forEach((word, index) => {
-        const wordItem = document.createElement('li');
-        wordItem.textContent = word;
-        customWordList.appendChild(wordItem);
-      });
+    function updatePlayerTurn() {
+        document.getElementById('player-turn').innerText = `${players[currentPlayerIndex]}, it's your turn`;
     }
 
-    function toggleWordSource() {
-      useCustomWords = !useCustomWords;
-      const customWordsSection = document.getElementById('customWordsSection');
-      customWordsSection.style.display = useCustomWords ? 'block' : 'none';
+    function showRole() {
+        const currentPlayer = players[currentPlayerIndex];
+        if (currentPlayer === impostor) {
+            document.getElementById('role-text').innerText = "You are the Impostor!";
+        } else {
+            document.getElementById('role-text').innerText = `The word is: ${secretWord}`;
+        }
+        document.getElementById('next-player-btn').classList.remove('hidden');
     }
-  </script>
-</head>
-<body class="bg-primary text-primary-foreground">
-  <div class="h-screen flex flex-col justify-center items-center">
-    <h1 class="text-4xl font-bold mb-8">Word Sleuth</h1>
-    <button onclick="toggleWordSource()" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg mb-4">Toggle Word Source</button>
-    <div id="customWordsSection" style="display: none;">
-      <input id="customWordInput" type="text" placeholder="Enter a custom word" class="bg-input text-primary-foreground px-4 py-2 rounded-md mb-2">
-      <button onclick="addCustomWord()" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg mb-4">Add Custom Word</button>
-      <ul id="customWordList" class="list-disc pl-5 mb-4"></ul>
-    </div>
-    <button onclick="startGame()" class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg">Start Game</button>
-  </div>
+
+    function nextPlayer() {
+        currentPlayerIndex++;
+        if (currentPlayerIndex < players.length) {
+            document.getElementById('role-text').innerText = '';
+            document.getElementById('next-player-btn').classList.add('hidden');
+            updatePlayerTurn();
+        } else {
+            showPlayingScreen();
+        }
+    }
+
+    function showPlayingScreen() {
+        hideAllScreens();
+        document.getElementById('playing-screen').classList.remove('hidden');
+    }
+
+    function endRound(impostorWon) {
+        hideAllScreens();
+        document.getElementById('end-round-screen').classList.remove('hidden');
+        document.getElementById('round-result').innerText = impostorWon ? "Impostor Won!" : "Impostor Lost!";
+        updateScores(impostorWon);
+    }
+
+    function updateScores(impostorWon) {
+        const scoreboard = document.getElementById('scoreboard');
+        scoreboard.innerHTML = '';
+        players.forEach(player => {
+            let points = 0;
+            if (player === impostor) {
+                points = impostorWon ? 100 : 0;
+            } else {
+                points = impostorWon ? 0 : 50;
+            }
+            scoreboard.innerHTML += `<p>${player}: ${points} points</p>`;
+        });
+    }
+
+    function quitGame() {
+        hideAllScreens();
+        document.getElementById('welcome-screen').classList.remove('hidden');
+    }
+
+    function hideAllScreens() {
+        document.getElementById('welcome-screen').classList.add('hidden');
+        document.getElementById('num-players-screen').classList.add('hidden');
+        document.getElementById('player-names-screen').classList.add('hidden');
+        document.getElementById('role-viewing-screen').classList.add('hidden');
+        document.getElementById('playing-screen').classList.add('hidden');
+        document.getElementById('end-round-screen').classList.add('hidden');
+    }
+</script>
 </body>
 </html>
