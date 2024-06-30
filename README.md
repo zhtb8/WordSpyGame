@@ -4,4 +4,4 @@ Pass the phone around to reveal your role. The Impostor's goal? Blend in and avo
 
 Let the word games begin!
 
-Run this game directly: zhtb8.github.io/WordSpyGame
+Run this game directly: [Play](https://zhtb8.github.io/WordSpyGame)
