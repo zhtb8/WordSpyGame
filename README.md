@@ -4,4 +4,4 @@ Pass the phone around to reveal your role. The Impostor's goal? Blend in and avo
 
 Let the word games begin!
 
-Run this program without dealing with the code: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/zhtb8/WordSpyGame/HEAD)
+Run this game directly: zhtb8.github.io/WordSpyGame
